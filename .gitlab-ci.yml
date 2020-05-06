@@ -1,0 +1,24 @@
+stages: 
+  - build
+  - deploy
+  
+  
+build: 
+  stage: build
+  script: 
+    #- mvn --version
+    - mvn clean install
+    - whoami
+    - pwd
+    - cd ~
+    - ls -la
+   
+
+  artifacts:
+    paths:
+     - /home/gitlab-runner/builds/97DgUpa1/0/testgroupdemolearning/learning-demo/target/*.jar
+
+  only:
+    - master
+  tags:
+    - master
